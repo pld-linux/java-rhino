@@ -13,7 +13,7 @@ Source0:	ftp://ftp.mozilla.org/pub/js/%{name}%{fver}.zip
 Requires:	jre
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_javalibdir	/usr/share/java
+%define		_javalibdir	%{_datadir}/java
 
 %description
 Rhino is an open-source implementation of JavaScript written entirely

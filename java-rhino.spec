@@ -1,14 +1,13 @@
 Summary:	Rhino - JavaScript for Java
 Summary(pl):	Rhino - JavaScript dla Javy
 Name:		rhino
-Version:	1.5R4.1
-%define	fver	%(echo %{version} | tr -d .)
-%define	dver	%(echo %{version} | tr . _)
+Version:	1.6R1
+%define	fver	%(echo %{version} | tr . _)
 Release:	1
 License:	NPL 1.1
 Group:		Development/Languages/Java
-Source0:	ftp://ftp.mozilla.org/pub/js/%{name}%{fver}.zip
-# Source0-md5:	f50367530e9860eb4110286bd8ebe175
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
+# Source0-md5:	a110bd2c661a5b935dda4d3bd430348d
 #BuildRequires:	jakarta-ant
 Requires:	jre
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,10 +25,10 @@ ca³kowicie w Javie. Zwykle jest osadzana w aplikacjach w Javie aby
 pozwoliæ u¿ytkownikom na u¿ywanie skryptów.
 
 %prep
-%setup -q -n %{name}%{dver}
+%setup -q -n %{name}%{fver}
 
 %build
-# tries to download something from java.sun.com
+# tries to download xbean.zip from www.apache.org
 #ant dist
 
 %install

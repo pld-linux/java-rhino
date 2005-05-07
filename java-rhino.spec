@@ -9,6 +9,7 @@ Group:		Development/Languages/Java
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
 # Source0-md5:	a110bd2c661a5b935dda4d3bd430348d
 #BuildRequires:	jakarta-ant
+BuildRequires:	unzip
 Requires:	jre
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

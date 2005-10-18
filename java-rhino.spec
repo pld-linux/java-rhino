@@ -2,13 +2,13 @@ Summary:	Rhino - JavaScript for Java
 Summary(pl):	Rhino - JavaScript dla Javy
 Name:		rhino
 # TODO: with next version don't put "R1" to Version (to avoid epoch bumps!)
-Version:	1.6R1
+Version:	1.6R2
 %define	fver	%(echo %{version} | tr . _)
-Release:	1.1
+Release:	1
 License:	NPL 1.1
 Group:		Development/Languages/Java
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
-# Source0-md5:	a110bd2c661a5b935dda4d3bd430348d
+# Source0-md5:	ecbf70d0d4f68e75d90ccf4a6a391b99
 URL:		http://www.mozilla.org/rhino/
 #BuildRequires:	jakarta-ant
 BuildRequires:	unzip

@@ -1,5 +1,5 @@
 Summary:	Rhino - JavaScript for Java
-Summary(pl):	Rhino - JavaScript dla Javy
+Summary(pl.UTF-8):   Rhino - JavaScript dla Javy
 Name:		rhino
 Version:	1.6R5
 %define	fver	%(echo %{version} | tr . _)
@@ -22,10 +22,10 @@ Rhino is an open-source implementation of JavaScript written entirely
 in Java. It is typically embedded into Java applications to provide
 scripting to end users.
 
-%description -l pl
-Rhino to implementacja JavaScriptu z otwartymi ºrÛd≥ami napisana
-ca≥kowicie w Javie. Zwykle jest osadzana w aplikacjach w Javie aby
-pozwoliÊ uøytkownikom na uøywanie skryptÛw.
+%description -l pl.UTF-8
+Rhino to implementacja JavaScriptu z otwartymi ≈∫r√≥d≈Çami napisana
+ca≈Çkowicie w Javie. Zwykle jest osadzana w aplikacjach w Javie aby
+pozwoliƒá u≈ºytkownikom na u≈ºywanie skrypt√≥w.
 
 %prep
 %setup -q -n %{name}%{fver}

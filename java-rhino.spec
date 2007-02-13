@@ -1,5 +1,5 @@
 Summary:	Rhino - JavaScript for Java
-Summary(pl.UTF-8):   Rhino - JavaScript dla Javy
+Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		rhino
 Version:	1.6R5
 %define	fver	%(echo %{version} | tr . _)

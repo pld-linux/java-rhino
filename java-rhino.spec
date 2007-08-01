@@ -1,13 +1,13 @@
 Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		rhino
-Version:	1.6R5
+Version:	1.6R6
 %define	fver	%(echo %{version} | tr . _)
 Release:	1
-License:	NPL 1.1
+License:	MPL 1.1 or GPL v2+
 Group:		Development/Languages/Java
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
-# Source0-md5:	c93b6d0bb8ba83c3760efeb30525728a
+# Source0-md5:	03093ee9dbe9d10ce19f274c76c61f8f
 URL:		http://www.mozilla.org/rhino/
 #BuildRequires:	ant
 BuildRequires:	unzip
@@ -31,7 +31,8 @@ pozwolić użytkownikom na używanie skryptów.
 %setup -q -n %{name}%{fver}
 
 %build
-# tries to download xbean.zip from www.apache.org
+# tries to download jfc from java.sun.com
+# tries to download xbean.zip (xmlbeans-2.2.0.zip) from www.apache.org
 #ant dist
 
 %install
@@ -45,5 +46,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*
+%doc javadoc/*
 %{_javalibdir}/*.jar

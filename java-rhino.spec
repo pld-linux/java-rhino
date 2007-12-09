@@ -1,16 +1,22 @@
+# TODO
+# - skip building old XMLBeans-based implementation of E4X? (see prep section)
+%define		fver	%(echo %{version} | tr . _)
 %include	/usr/lib/rpm/macros.java
-%define	fver	%(echo %{version} | tr . _)
 Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		rhino
 Version:	1.6R7
-Release:	1
+Release:	2
 License:	MPL 1.1 or GPL v2+
 Group:		Development/Languages/Java
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
 # Source0-md5:	7be259ae496aae78feaafe7099e09897
+Source1:	http://java.sun.com/products/jfc/tsc/articles/treetable2/downloads/src.zip
+# Source1-md5:	ab016c8f81812bb930fc0f7a69e053c5
+Source2:	http://www.apache.org/dist/xmlbeans/binaries/xmlbeans-2.2.0.zip
+# Source2-md5:	f279d25e2dccbb524e406543c38b4aae
 URL:		http://www.mozilla.org/rhino/
-#BuildRequires:	ant
+BuildRequires:	ant
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
@@ -47,17 +53,27 @@ Javadoc pour %{name}.
 %prep
 %setup -q -n %{name}%{fver}
 
+cat <<'EOF' >> build.properties
+# use local path
+swing-ex-url=file:%{SOURCE1}
+# use local path
+xmlbeans.zip=%{SOURCE2}
+
+# Will cause E4X not to be built
+#no-e4x=true
+# Will cause the old, XMLBeans-based implementation of E4X not to be built
+#no-xmlbeans=true
+EOF
+
 %build
-# tries to download jfc from java.sun.com
-# tries to download xbean.zip (xmlbeans-2.2.0.zip) from www.apache.org
-#ant dist
+%ant jar
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
 # jars
-install js.jar $RPM_BUILD_ROOT%{_javadir}/js-%{version}.jar
+install build/%{name}%{fver}/js.jar $RPM_BUILD_ROOT%{_javadir}/js-%{version}.jar
 ln -s js-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/js.jar
 
 # javadoc

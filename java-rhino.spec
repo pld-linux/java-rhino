@@ -17,6 +17,7 @@ Source2:	http://www.apache.org/dist/xmlbeans/binaries/xmlbeans-2.2.0.zip
 # Source2-md5:	f279d25e2dccbb524e406543c38b4aae
 URL:		http://www.mozilla.org/rhino/
 BuildRequires:	ant
+BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300

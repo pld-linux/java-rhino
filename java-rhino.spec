@@ -4,12 +4,12 @@
 %include	/usr/lib/rpm/macros.java
 Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
-Name:		rhino
+Name:		java-rhino
 Version:	1.7R2
 Release:	1
 License:	MPL 1.1 or GPL v2+
 Group:		Development/Languages/Java
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/%{name}%{fver}.zip
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/rhino%{fver}.zip
 # Source0-md5:	40d0a9abec8169e42920214b37fa8e0e
 Source1:	http://java.sun.com/products/jfc/tsc/articles/treetable2/downloads/src.zip
 # Source1-md5:	ab016c8f81812bb930fc0f7a69e053c5
@@ -36,22 +36,22 @@ całkowicie w Javie. Zwykle jest osadzana w aplikacjach w Javie aby
 pozwolić użytkownikom na używanie skryptów.
 
 %package javadoc
-Summary:	Online manual for %{name}
-Summary(pl.UTF-8):	Dokumentacja online do %{name}
+Summary:	Online manual for Rhino
+Summary(pl.UTF-8):	Dokumentacja online do Rhino
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description javadoc
-Documentation for %{name}.
+Documentation for Rhino.
 
 %description javadoc -l pl.UTF-8
-Dokumentacja do %{name} -
+Dokumentacja do Rhino.
 
 %description javadoc -l fr.UTF-8
-Javadoc pour %{name}.
+Javadoc pour Rhino.
 
 %prep
-%setup -q -n %{name}%{fver}
+%setup -q -n rhino%{fver}
 
 cat <<'EOF' >> build.properties
 # use local path
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
 # jars
-install build/%{name}%{fver}/js.jar $RPM_BUILD_ROOT%{_javadir}/js-%{version}.jar
+install build/rhino%{fver}/js.jar $RPM_BUILD_ROOT%{_javadir}/js-%{version}.jar
 ln -s js-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/js.jar
 
 # javadoc

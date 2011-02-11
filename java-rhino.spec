@@ -70,7 +70,7 @@ EOF
 %build
 # workaround for java-gcj-compat-devel compilation failure
 %ant jar || :
-rm -f build/classes/org/mozilla/javascript/{FieldsAndMethods,JavaMembers}.class
+%{__rm} build/classes/org/mozilla/javascript/{FieldAndMethods,JavaMembers}.class
 
 %ant jar
 
@@ -95,7 +95,8 @@ ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 
 %files
 %defattr(644,root,root,755)
-%{_javadir}/*.jar
+%{_javadir}/js-%{version}.jar
+%{_javadir}/js.jar
 
 %files javadoc
 %defattr(644,root,root,755)

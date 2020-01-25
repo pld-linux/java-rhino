@@ -1,7 +1,6 @@
 # TODO
 # - skip building old XMLBeans-based implementation of E4X? (see prep section)
 %define		fver	%(echo %{version} | tr . _)
-%include	/usr/lib/rpm/macros.java
 Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		java-rhino

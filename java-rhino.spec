@@ -5,16 +5,17 @@ Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		java-rhino
 Version:	1.7R3
-Release:	2
+Release:	3
 License:	MPL 1.1 or GPL v2+
 Group:		Development/Languages/Java
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/js/rhino%{fver}.zip
+Source0:	https://ftp.mozilla.org/pub/mozilla.org/js/rhino%{fver}.zip
 # Source0-md5:	99d94103662a8d0b571e247a77432ac5
-Source1:	http://java.sun.com/products/jfc/tsc/articles/treetable2/downloads/src.zip
+Source1:	https://java.sun.com/products/jfc/tsc/articles/treetable2/downloads/src.zip
 # Source1-md5:	ab016c8f81812bb930fc0f7a69e053c5
-Source2:	http://www.apache.org/dist/xmlbeans/binaries/xmlbeans-2.2.0.zip
+Source2:	https://www.apache.org/dist/xmlbeans/binaries/xmlbeans-2.2.0.zip
 # Source2-md5:	f279d25e2dccbb524e406543c38b4aae
-URL:		http://www.mozilla.org/rhino/
+Patch0:		build.patch
+URL:		https://www.mozilla.org/rhino/
 BuildRequires:	ant
 BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
@@ -53,6 +54,7 @@ Javadoc pour Rhino.
 
 %prep
 %setup -q -n rhino%{fver}
+%patch -P0 -p1
 
 cat <<'EOF' >> build.properties
 # use local path

@@ -1,11 +1,14 @@
 # TODO
 # - skip building old XMLBeans-based implementation of E4X? (see prep section)
+
+%{?use_default_jdk:%use_default_jdk 8}
+
 %define		fver	%(echo %{version} | tr . _)
 Summary:	Rhino - JavaScript for Java
 Summary(pl.UTF-8):	Rhino - JavaScript dla Javy
 Name:		java-rhino
 Version:	1.7R3
-Release:	3
+Release:	4
 License:	MPL 1.1 or GPL v2+
 Group:		Development/Languages/Java
 Source0:	https://ftp.mozilla.org/pub/mozilla.org/js/rhino%{fver}.zip
@@ -17,10 +20,10 @@ Source2:	https://www.apache.org/dist/xmlbeans/binaries/xmlbeans-2.2.0.zip
 Patch0:		build.patch
 URL:		https://www.mozilla.org/rhino/
 BuildRequires:	ant
-BuildRequires:	jdk >= 1.5
+%buildrequires_jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.556
 BuildRequires:	unzip
 Requires:	jpackage-utils
 Obsoletes:	rhino
